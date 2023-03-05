@@ -44,8 +44,8 @@ const IndexPosts = () => {
           <div className="flex border border-purple-200 rounded">
             <input
               type="text"
-              className=" block w-96 px-4 py-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              placeholder="ポケモン、わざ、もちものなどを入力"
+              className="block w-48 px-4 py-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              placeholder="ポケモンなどを入力"
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button
