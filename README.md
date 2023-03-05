@@ -2,5 +2,6 @@
 
 https://poke-calculator.vercel.app/posts
 
-###　バックエンドリポジトリ
+### バックエンドリポジトリ
+
 https://github.com/hagoromo2000/poke_calculator_rails
