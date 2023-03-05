@@ -2,7 +2,7 @@ import React from "react";
 
 const PostCard = (props) => {
   return (
-    <div className="card w-96 bg-base-100 shadow-xl m-4 text-gray-600">
+    <div className="card w-96 bg-base-100 shadow-xl md:m-4 mb-4 text-gray-600">
       <div className="card-body">
         <h2 className="card-title">{props.post.title}</h2>
         <div className="md:flex">
