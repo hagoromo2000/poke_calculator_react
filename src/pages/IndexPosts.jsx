@@ -12,7 +12,6 @@ const IndexPosts = () => {
     axios.get("/posts").then((res) => {
       setPosts(res.data.data);
       setFilteredPosts(res.data.data);
-      console.log(res.data.data);
     });
   }, []);
 
