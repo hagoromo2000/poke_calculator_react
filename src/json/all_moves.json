@@ -3705,7 +3705,7 @@
     "damage_class": "へんか"
   },
   {
-    "name": "１０まんばりき",
+    "name": "10まんばりき",
     "type": "じめん",
     "power": 95,
     "damage_class": "ぶつり"
@@ -4046,12 +4046,6 @@
     "type": "ノーマル",
     "power": 120,
     "damage_class": "ぶつり"
-  },
-  {
-    "name": "１０００まんボルト",
-    "type": "でんき",
-    "power": 195,
-    "damage_class": "とくしゅ"
   },
   {
     "name": "メガドレイン",
@@ -4908,7 +4902,7 @@
     "damage_class": "へんか"
   },
   {
-    "name": "１０まんボルト",
+    "name": "10まんボルト",
     "type": "でんき",
     "power": 90,
     "damage_class": "とくしゅ"
