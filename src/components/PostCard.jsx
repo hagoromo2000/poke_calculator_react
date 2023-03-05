@@ -47,7 +47,6 @@ const PostShowModal = (props) => {
           <h3 className="font-bold text-lg col-span-2 justify-center">
             {props.post.title}
           </h3>
-
           <div className="grid grid-cols-4 gap-1">
             <p className="col-span-2">ポケモン: {props.post.pokemon}</p>
             <p className="col-span-2">性格: {props.post.nature}</p>
@@ -68,11 +67,8 @@ const PostShowModal = (props) => {
             <p className="col-span-1"> {props.post.move3}</p>
             <p className="col-span-1"> {props.post.move4}</p>
           </div>
-          <p className="pt-4">
-            概要　
-            <br />
-            {props.post.body}
-          </p>
+          <h4 className="pt-4">概要</h4>
+          <p>{props.post.body}</p>
         </div>
       </div>
     </>
