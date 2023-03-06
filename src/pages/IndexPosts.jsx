@@ -2,11 +2,23 @@ import React from "react";
 import { useState, useEffect } from "react";
 import PostCard from "../components/PostCard";
 import axios from "axios";
+import ReactPaginate from "react-paginate";
 
 const IndexPosts = () => {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
+
+  // react-paginateのための設定
+  const [itemsOffset, setItemsOffset] = useState(0);
+  const itemsPerPage = 12; // 1ページの表示数なので任意に変更してください
+  const endOffset = itemsOffset + itemsPerPage;
+  const currentPosts = filteredPosts.slice(itemsOffset, endOffset);
+  const pageCount = Math.ceil(filteredPosts.length / itemsPerPage);
+  const handlePageClick = (e) => {
+    const newOffset = (e.selected * itemsPerPage) % filteredPosts.length;
+    setItemsOffset(newOffset);
+  };
 
   useEffect(() => {
     axios.get("/posts").then((res) => {
@@ -60,9 +72,39 @@ const IndexPosts = () => {
 
       <div className="md:flex flex-wrap justify-center">
         {filteredPosts.length > 0 &&
-          filteredPosts.map((post) => (
-            <PostCard key={post.id} post={post.attributes} id={post.id} />
+          currentPosts.map((post) => (
+            <div key={post.id}>
+              <PostCard post={post.attributes} id={post.id} />
+            </div>
           ))}
+      </div>
+      <div className="pb-8">
+        <ReactPaginate
+          pageCount={pageCount}
+          layout="pagination"
+          onPageChange={handlePageClick}
+          previousLabel={"Previous"}
+          nextLabel={"Next"}
+          breakLabel={"..."}
+          marginPagesDisplayed={3}
+          pageRangeDisplayed={3}
+          containerClassName={
+            "text-gray-600 justify-center items-center flex gap-x-5 gap-y-1.5"
+          }
+          pageClassName={
+            "inline-flex justify-center items-center h-10 w-10 text-base font-bold bg-white rounded-full hover:border-black hover:font-bold "
+          }
+          pageLinkClassName={
+            "inline-flex justify-center rounded-full align-middle text-black"
+          }
+          breakClassName={
+            "inline-flex justify-center items-center h-10 w-10 text-base font-bold bg-white rounded-full"
+          }
+          breakLinkClassName={
+            "inline-flex justify-center rounded-full align-middle text-black"
+          }
+          activeClassName={"bg-green-400"}
+        />
       </div>
     </>
   );
