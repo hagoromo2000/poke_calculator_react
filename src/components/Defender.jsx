@@ -3,6 +3,7 @@ import Select from "react-select";
 import "../css/Calculator.css";
 import Pokemons from "../json/all_pokemons.json";
 import Items from "../json/all_items.json";
+import Types from "../json/all_types.json";
 import Abilities from "../json/all_abilities.json";
 import CallPostModal from "./CallPostModal";
 
@@ -18,26 +19,9 @@ const all_abilities = Abilities.map((data) => {
   return { value: data.name, label: data.name };
 });
 
-const all_types = [
-  { value: null, label: "テラスタイプなし" },
-  { value: "ノーマル", label: "ノーマル" },
-  { value: "ほのお", label: "ほのお" },
-  { value: "みず", label: "みず" },
-  { value: "くさ", label: "くさ" },
-  { value: "こおり", label: "こおり" },
-  { value: "かくとう", label: "かくとう" },
-  { value: "どく", label: "どく" },
-  { value: "じめん", label: "じめん" },
-  { value: "ひこう", label: "ひこう" },
-  { value: "エスパー", label: "エスパー" },
-  { value: "むし", label: "むし" },
-  { value: "いわ", label: "いわ" },
-  { value: "ゴースト", label: "ゴースト" },
-  { value: "ドラゴン", label: "ドラゴン" },
-  { value: "あく", label: "あく" },
-  { value: "はがね", label: "はがね" },
-  { value: "フェアリー", label: "フェアリー" },
-];
+const all_types = Types.map((data) => {
+  return { value: data.value, label: data.label };
+});
 
 //　コンポーネント
 const Defender = (props) => {
