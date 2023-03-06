@@ -92,7 +92,7 @@ const IndexPosts = () => {
             "text-gray-600 justify-center items-center flex gap-x-5 gap-y-1.5"
           }
           pageClassName={
-            "inline-flex justify-center items-center h-10 w-10 text-base font-bold bg-white rounded-full hover:border-black hover:font-bold "
+            "inline-flex justify-center items-center h-10 w-10 text-base font-bold rounded-full hover:border-black hover:font-bold "
           }
           pageLinkClassName={
             "inline-flex justify-center rounded-full align-middle text-black"
