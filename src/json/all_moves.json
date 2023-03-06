@@ -5493,5 +5493,11 @@
     "type": "エスパー",
     "power": 80,
     "damage_class": "ぶつり"
+  },
+  {
+    "name": "でんこうそうげき",
+    "type": "でんき",
+    "power": 120,
+    "damage_class": "ぶつり"
   }
 ]
