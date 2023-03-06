@@ -4920,6 +4920,210 @@
     "damage_class": "とくしゅ"
   },
   {
+    "name": "テラバーストほのお(とくしゅ)",
+    "type": "ほのお",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストほのお(ぶつり)",
+    "type": "ほのお",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストみず(とくしゅ)",
+    "type": "みず",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストみず(ぶつり)",
+    "type": "みず",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストでんき(とくしゅ)",
+    "type": "でんき",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストでんき(ぶつり)",
+    "type": "でんき",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストくさ(とくしゅ)",
+    "type": "くさ",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストくさ(ぶつり)",
+    "type": "くさ",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストこおり(とくしゅ)",
+    "type": "こおり",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストこおり(ぶつり)",
+    "type": "こおり",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストかくとう(とくしゅ)",
+    "type": "かくとう",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストかくとう(ぶつり)",
+    "type": "かくとう",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストどく(とくしゅ)",
+    "type": "どく",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストどく(ぶつり)",
+    "type": "どく",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストじめん(とくしゅ)",
+    "type": "じめん",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストじめん(ぶつり)",
+    "type": "じめん",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストひこう(とくしゅ)",
+    "type": "ひこう",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストひこう(ぶつり)",
+    "type": "ひこう",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストエスパー(とくしゅ)",
+    "type": "エスパー",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストエスパー(ぶつり)",
+    "type": "エスパー",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストむし(とくしゅ)",
+    "type": "むし",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストむし(ぶつり)",
+    "type": "むし",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストいわ(とくしゅ)",
+    "type": "いわ",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストいわ(ぶつり)",
+    "type": "いわ",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストゴースト(とくしゅ)",
+    "type": "ゴースト",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストゴースト(ぶつり)",
+    "type": "ゴースト",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストドラゴン(とくしゅ)",
+    "type": "ドラゴン",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストドラゴン(ぶつり)",
+    "type": "ドラゴン",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストあく(とくしゅ)",
+    "type": "あく",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストあく(ぶつり)",
+    "type": "あく",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストはがね(とくしゅ)",
+    "type": "はがね",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストはがね(ぶつり)",
+    "type": "はがね",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
+    "name": "テラバーストフェアリー(とくしゅ)",
+    "type": "フェアリー",
+    "power": 80,
+    "damage_class": "とくしゅ"
+  },
+  {
+    "name": "テラバーストフェアリー(ぶつり)",
+    "type": "フェアリー",
+    "power": 80,
+    "damage_class": "ぶつり"
+  },
+  {
     "name": "スレッドトラップ",
     "type": "むし",
     "power": 0,
