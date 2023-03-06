@@ -69,10 +69,32 @@ const Header = () => {
           >
             ✕
           </label>
-          <p className="p-4 text-gray-600 flex justify-center">
+          <p className="p-4 text-gray-400 flex justify-center">
             Googleログインすると育成論投稿機能を利用できます。
           </p>
           <GoogleAuthButton />
+          <p className="text-gray-400 p-4">
+            <Link
+              to={`/terms/`}
+              className="text-blue-400"
+              onClick={() =>
+                (document.getElementById("signup-modal").checked = false)
+              }
+            >
+              利用規約
+            </Link>
+            、
+            <Link
+              to={`/privacy-policy`}
+              className="text-blue-400"
+              onClick={() =>
+                (document.getElementById("signup-modal").checked = false)
+              }
+            >
+              プライバシーポリシー
+            </Link>
+            に同意した上でログインしてください。
+          </p>
         </div>
       </div>
     </>
