@@ -5,6 +5,7 @@ import Pokemons from "../json/all_pokemons.json";
 import Moves from "../json/all_moves.json";
 import Items from "../json/all_items.json";
 import Abilities from "../json/all_abilities.json";
+import CallPostModal from "./CallPostModal";
 
 // 以下、サーチャブルセレクトボックスの選択肢をJSONから生成する処理
 const attack_moves = Moves.filter((move) => move.power !== null);
@@ -135,9 +136,7 @@ const Attacker = (props) => {
       <div className="artboard phone-5 bg-white rounded-lg shadow-xl mx-auto mt-10 ">
         <div className="flex flex-row bg-gradient-to-r rounded-t-lg from-red-200 to-red-200">
           <p className="pt-5 pl-5 font-bold ">攻撃側</p>
-          <button className="btn btn-primary ml-32 mt-2 mb-2">
-            育成論から呼び出す
-          </button>
+          <CallPostModal />
         </div>
 
         {/* ポケモン選択　*/}
