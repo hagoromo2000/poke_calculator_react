@@ -4,6 +4,7 @@ import "../css/Calculator.css";
 import Pokemons from "../json/all_pokemons.json";
 import Items from "../json/all_items.json";
 import Abilities from "../json/all_abilities.json";
+import CallPostModal from "./CallPostModal";
 
 const all_pokemons = Pokemons.map((data) => {
   return { value: data, label: data.name };
@@ -146,12 +147,9 @@ const Defender = (props) => {
       <div className="artboard phone-5 bg-white rounded-lg shadow-xl mx-auto mt-10 ">
         <div className="flex flex-row bg-gradient-to-r rounded-t-lg from-blue-200 to-blue-200">
           <p className="pt-5 pl-5 font-bold ">防御側</p>
-          <button className="btn btn-primary ml-32 mt-2 mb-2">
-            育成論から呼び出す
-          </button>
+          <CallPostModal />
         </div>
 
-        {/* ポケモン選択モーダル　*/}
         <div className="w-64 mt-5 ml-4">
           <Select
             value={pokemon}
