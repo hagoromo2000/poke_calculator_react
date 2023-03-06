@@ -103,7 +103,7 @@ const IndexPosts = () => {
           breakLinkClassName={
             "inline-flex justify-center rounded-full align-middle text-black"
           }
-          activeClassName={"bg-green-400"}
+          activeClassName={"bg-green-300"}
         />
       </div>
     </>
