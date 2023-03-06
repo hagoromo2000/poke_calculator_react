@@ -2,6 +2,7 @@
   { "value": "ノーマル", "label": "ノーマル" },
   { "value": "ほのお", "label": "ほのお" },
   { "value": "みず", "label": "みず" },
+  { "value": "でんき", "label": "でんき" },
   { "value": "くさ", "label": "くさ" },
   { "value": "こおり", "label": "こおり" },
   { "value": "かくとう", "label": "かくとう" },
