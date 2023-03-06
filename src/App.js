@@ -7,6 +7,8 @@ import { AuthContextProvider } from "./context/AuthContext.tsx";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Terms from "./pages/Terms";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 axios.defaults.baseURL =
   process.env.REACT_APP_BASE_URL || "http://localhost:3001/api/v1";
@@ -34,6 +36,12 @@ function App() {
               <Route exact path={`/`} element={<Calculator />} />
               <Route exact path={`/posts/new/`} element={<NewPost />} />
               <Route exact path={`/posts/`} element={<IndexPosts />} />
+              <Route exact path={`/terms/`} element={<Terms />} />
+              <Route
+                exact
+                path={`/privacy-policy/`}
+                element={<PrivacyPolicy />}
+              />
             </Routes>
           </AuthContextProvider>
         </BrowserRouter>
