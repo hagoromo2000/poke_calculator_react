@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -134,12 +135,14 @@ function UserInfo() {
   );
 }
 
-const logoutHandler = async () => {
-  // await logout();
-  auth.signOut();
-  toast.success("サインアウトしました！");
-};
-
 function SignOutButton() {
+  const navigate = useNavigate();
+
+  const logoutHandler = async () => {
+    // await logout();
+    auth.signOut();
+    navigate("/");
+    toast.success("サインアウトしました！");
+  };
   return <button onClick={logoutHandler}>サインアウト</button>;
 }
