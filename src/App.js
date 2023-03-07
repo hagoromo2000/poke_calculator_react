@@ -18,7 +18,7 @@ axios.defaults.baseURL =
 function App() {
   return (
     <>
-      <div className="min-h-screen bg-blue-50 ... ">
+      <div className="min-h-screen bg-gradient-to-r from-cyan-50 to-blue-100 ...">
         <ToastContainer
           position="top-center"
           autoClose={5000}
