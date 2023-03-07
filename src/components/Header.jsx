@@ -107,7 +107,7 @@ function UserInfo() {
   return (
     <>
       <a>
-        <div className="avator">
+        <div className="avatar">
           <div className="w-10 rounded-full">
             <img src={auth.currentUser.photoURL} alt="" />
           </div>
@@ -123,6 +123,9 @@ function UserInfo() {
         </svg>
       </a>
       <ul className="pr-2 bg-primary">
+        <li>
+          <Link to={"/mypage/"}>マイページ</Link>
+        </li>
         <li>
           <SignOutButton />
         </li>
