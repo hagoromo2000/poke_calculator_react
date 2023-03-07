@@ -1,12 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Calculator from "./pages/Calculator";
-import Header from "./components/Header";
-import IndexPosts from "./pages/IndexPosts";
-import NewPost from "./pages/NewPost";
 import { AuthContextProvider } from "./context/AuthContext.tsx";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import Calculator from "./pages/Calculator";
+import Header from "./components/Header";
+import IndexPosts from "./pages/IndexPosts";
+import NewPost from "./pages/NewPost";
+import MyPage from "./pages/MyPage";
 import Terms from "./pages/Terms";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
@@ -42,6 +44,7 @@ function App() {
                 path={`/privacy-policy/`}
                 element={<PrivacyPolicy />}
               />
+              <Route exact path={`/mypage/`} element={<MyPage />} />
             </Routes>
           </AuthContextProvider>
         </BrowserRouter>

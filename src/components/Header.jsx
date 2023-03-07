@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -107,7 +108,7 @@ function UserInfo() {
   return (
     <>
       <a>
-        <div className="avator">
+        <div className="avatar">
           <div className="w-10 rounded-full">
             <img src={auth.currentUser.photoURL} alt="" />
           </div>
@@ -124,6 +125,9 @@ function UserInfo() {
       </a>
       <ul className="pr-2 bg-primary">
         <li>
+          <Link to={"/mypage/"}>マイページ</Link>
+        </li>
+        <li>
           <SignOutButton />
         </li>
       </ul>
@@ -131,12 +135,14 @@ function UserInfo() {
   );
 }
 
-const logoutHandler = async () => {
-  // await logout();
-  auth.signOut();
-  toast.success("サインアウトしました！");
-};
-
 function SignOutButton() {
+  const navigate = useNavigate();
+
+  const logoutHandler = async () => {
+    // await logout();
+    auth.signOut();
+    navigate("/");
+    toast.success("サインアウトしました！");
+  };
   return <button onClick={logoutHandler}>サインアウト</button>;
 }
