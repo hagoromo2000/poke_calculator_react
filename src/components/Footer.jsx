@@ -37,7 +37,13 @@ const Footer = (props) => {
                 }}
               ></div>
               <div
-                className="bg-blue-400 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full h-2.5 absolute top-0 bottom-0 left-0 right-0"
+                className={`${
+                  props.maxDamage / props.hp > 0.8
+                    ? "bg-red-400"
+                    : props.maxDamage / props.hp > 0.5
+                    ? "bg-yellow-400"
+                    : "bg-blue-400"
+                } text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full h-2.5 absolute top-0 bottom-0 left-0 right-0`}
                 style={{
                   width: `${
                     props.minDamage / props.hp > 1
@@ -50,7 +56,13 @@ const Footer = (props) => {
                 {/* {(100 - (props.minDamage / props.hp) * 100).toFixed(1)}% */}
               </div>
               <div
-                className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full h-2.5 absolute top-0 bottom-0 left-0 right-0"
+                className={`${
+                  props.maxDamage / props.hp > 0.8
+                    ? "bg-red-600"
+                    : props.maxDamage / props.hp > 0.5
+                    ? "bg-amber-500"
+                    : "bg-blue-600"
+                } text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full h-2.5 absolute top-0 bottom-0 left-0 right-0`}
                 style={{
                   width: `${
                     props.maxDamage / props.hp > 1
