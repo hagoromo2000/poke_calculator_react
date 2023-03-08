@@ -25,7 +25,10 @@ const PostCard = (props) => {
 const PostShowModal = (props) => {
   return (
     <>
-      <label htmlFor={`post-modal-${props.id}`} className="btn btn-primary">
+      <label
+        htmlFor={`post-modal-${props.id}`}
+        className="btn btn-outline border-indigo-400 btn-info"
+      >
         詳細
       </label>
 
