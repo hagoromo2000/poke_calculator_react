@@ -33,7 +33,7 @@ const Header = () => {
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
               </a>
-              <ul className="p-2 bg-primary shadow-xl bg-emerald-400">
+              <ul className="p-2 shadow-xl bg-emerald-400">
                 <li>
                   <Link to={`/posts`}>育成論一覧</Link>
                 </li>
@@ -123,7 +123,7 @@ function UserInfo() {
           <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
         </svg>
       </a>
-      <ul className="py-2 pr-2 bg-primary shadow-xl bg-emerald-400">
+      <ul className="py-2 pr-2 shadow-xl bg-emerald-400">
         <li>
           <Link to={"/mypage/"}>マイページ</Link>
         </li>
