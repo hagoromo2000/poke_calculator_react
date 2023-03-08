@@ -131,7 +131,7 @@ const Defender = (props) => {
       <div className="artboard phone-5 bg-white rounded-lg shadow-xl mx-auto mt-10 ">
         <div className="flex flex-row bg-gradient-to-r rounded-t-lg from-blue-200 to-blue-200">
           <p className="pt-5 pl-5 font-bold ">防御側</p>
-          <CallPostModal />
+          <CallPostModal textColor={`text-indigo-500`} />
         </div>
 
         <div className="w-64 mt-5 ml-4">
