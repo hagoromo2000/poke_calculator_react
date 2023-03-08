@@ -136,7 +136,7 @@ const Attacker = (props) => {
       <div className="artboard phone-5 bg-white rounded-lg shadow-xl mx-auto mt-10 ">
         <div className="flex flex-row bg-gradient-to-r rounded-t-lg from-red-200 to-red-200">
           <p className="pt-5 pl-5 font-bold ">攻撃側</p>
-          <CallPostModal />
+          <CallPostModal textColor={`text-rose-500`} />
         </div>
 
         {/* ポケモン選択　*/}

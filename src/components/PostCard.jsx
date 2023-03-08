@@ -44,28 +44,40 @@ const PostShowModal = (props) => {
           >
             ✕
           </label>
-          <h3 className="font-bold text-lg col-span-2 justify-center">
+          <h3 className="font-bold text-lg col-span-2 flex justify-center mb-4">
             {props.post.title}
           </h3>
           <div className="grid grid-cols-4 gap-1">
-            <p className="col-span-2">ポケモン: {props.post.pokemon}</p>
-            <p className="col-span-2">性格: {props.post.nature}</p>
+            <p className="col-span-2">
+              <span class="font-bold">ポケモン:</span> {props.post.pokemon}
+            </p>
+            <p className="col-span-2">
+              <span class="font-bold">性格:</span> {props.post.nature}
+            </p>
             <div className=" col-span-2">
               {" "}
-              努力値: {props.post.ev_hp}-{props.post.ev_attack}-
-              {props.post.ev_defense}-{props.post.ev_special_attack}-
-              {props.post.ev_special_defense}-{props.post.ev_speed}
+              <span class="font-bold">努力値: </span>
+              {props.post.ev_hp}-{props.post.ev_attack}-{props.post.ev_defense}-
+              {props.post.ev_special_attack}-{props.post.ev_special_defense}-
+              {props.post.ev_speed}
             </div>
             <div className=" col-span-2">
-              テラスタイプ: {props.post.tera_type}
+              <span class="font-bold">テラスタイプ: </span>
+              {props.post.tera_type}
             </div>
-            <p className="col-span-2">もちもの: {props.post.item}</p>
-            <p className="col-span-2">とくせい: {props.post.ability}</p>
-            <p className="col-span-4 pt-4">わざ:</p>
-            <p className="col-span-1"> {props.post.move1}</p>
-            <p className="col-span-1"> {props.post.move2}</p>
-            <p className="col-span-1"> {props.post.move3}</p>
-            <p className="col-span-1"> {props.post.move4}</p>
+            <p className="col-span-2">
+              <span class="font-bold">もちもの: </span>
+              {props.post.item}
+            </p>
+            <p className="col-span-2">
+              <span class="font-bold">とくせい: </span>
+              {props.post.ability}
+            </p>
+            <p className="col-span-4 pt-4 font-bold">わざ:</p>
+            <p className="col-span-2 "> {props.post.move1}</p>
+            <p className="col-span-2"> {props.post.move2}</p>
+            <p className="col-span-2 "> {props.post.move3}</p>
+            <p className="col-span-2 "> {props.post.move4}</p>
           </div>
           <h4 className="pt-4">概要</h4>
           <p>{props.post.body}</p>

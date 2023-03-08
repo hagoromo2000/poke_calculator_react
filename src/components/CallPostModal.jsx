@@ -1,11 +1,12 @@
 import React from "react";
 
-const CallPostModal = () => {
+const CallPostModal = (props) => {
   return (
     <>
       <label
         htmlFor={`call-post-modal`}
-        className="btn btn-primary ml-32 mt-2 mb-2"
+        // className="btn bg-white text-rose-500 hover:bg-yellow-100 ml-32 mt-2 mb-2"
+        className={`btn bg-white ${props.textColor} hover:bg-yellow-100 ml-32 mt-2 mb-2`}
       >
         育成論から呼び出す
       </label>
