@@ -41,10 +41,10 @@ const CallPostModal = (props) => {
         育成論から呼び出す
       </label>
 
-      {/* Put this part before </body> tag */}
+      {/* モーダル　*/}
       <input type="checkbox" id={`call-post-modal`} className="modal-toggle" />
 
-      <div className=" modal sm:modal-middle ">
+      <div className="modal sm:modal-middle ">
         <div className="modal-box">
           <div className="min-h-screen">
             <label
@@ -108,7 +108,11 @@ const CallPostModal = (props) => {
                   <tbody>
                     {filteredPosts.length > 0 &&
                       filteredPosts.map((post) => (
-                        <TableBody post={post.attributes} id={post.id} />
+                        <TableBody
+                          post={post.attributes}
+                          key={post.id}
+                          setInformation={props.setInformation}
+                        />
                       ))}
                   </tbody>
                 </table>
