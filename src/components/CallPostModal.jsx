@@ -34,20 +34,24 @@ const CallPostModal = (props) => {
   return (
     <>
       <label
-        htmlFor={`call-post-modal`}
+        htmlFor={`${props.callPostModalId}`}
         className={`btn bg-white ${props.textColor} hover:bg-yellow-100 ml-32 mt-2 mb-2`}
       >
         育成論から呼び出す
       </label>
 
       {/* モーダル　*/}
-      <input type="checkbox" id={`call-post-modal`} className="modal-toggle" />
+      <input
+        type="checkbox"
+        id={`${props.callPostModalId}`}
+        className="modal-toggle"
+      />
 
       <div className="modal sm:modal-middle ">
         <div className="modal-box">
           <div className="min-h-screen">
             <label
-              htmlFor={`call-post-modal`}
+              htmlFor={`${props.callPostModalId}`}
               className="btn btn-sm btn-circle absolute right-2 top-2"
             >
               ✕

@@ -182,6 +182,7 @@ const Attacker = (props) => {
           <CallPostModal
             textColor={`text-rose-500`}
             setInformation={getAttackerInformation}
+            callPostModalId={`attacker-call-post-modal`}
           />
         </div>
 
