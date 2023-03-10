@@ -127,16 +127,62 @@ const Attacker = (props) => {
     props.setSpecialAttack(special_attack_value);
   }, [special_attack_ev, specialAttackNature, pokemon]);
 
-  // 技威力の制御　handleMoveに処理を移管したためコメントアウト(威力の入力受付をする際に復活の可能性あり)
-  //const handlePower = (move) => {
-  //};
+  // CallPostModalに受け渡すための関数
+  const getAttackerInformation = (post) => {
+    // これはAttacker
+    const pokemonName = post.pokemon;
+
+    //現段階では名前しか情報を持っていないので、JSONデータを名前で検索しオブジェクトを取得。
+    const result = Pokemons.filter((obj) => obj.name === pokemonName);
+
+    //　形を{value: {各種データ}}にする
+    const formattedResult = { value: result[0], label: pokemonName };
+
+    // 取得したオブジェクトからポケモンをセット
+    setPokemon(formattedResult);
+
+    // タイプのセット
+    props.setAttackerFirstType(formattedResult.value.type1);
+    props.setAttackerSecondType(formattedResult.value.type2);
+
+    // 努力値のセット
+    setAttack_ev(post.ev_attack);
+    setSpecialAttack_ev(post.ev_special_attack);
+
+    //　性格補正のセット
+    const attackNatureValues = {
+      いじっぱり: 1.1,
+      さみしがり: 1.1,
+      やんちゃ: 1.1,
+      ゆうかん: 1.1,
+      ずぶとい: 0.9,
+      ひかえめ: 0.9,
+      おだやか: 0.9,
+      おくびょう: 0.9,
+    };
+    setAttackNature(attackNatureValues[post.nature] || 1);
+    const specialAttackNatureValues = {
+      ひかえめ: 1.1,
+      おっとり: 1.1,
+      うっかりや: 1.1,
+      れいせい: 1.1,
+      いじっぱり: 0.9,
+      わんぱく: 0.9,
+      しんちょう: 0.9,
+      ようき: 0.9,
+    };
+    setSpecialAttackNature(specialAttackNatureValues[post.nature] || 1);
+  };
 
   return (
     <>
       <div className="artboard phone-5 bg-white rounded-lg shadow-xl mx-auto mt-10 ">
         <div className="flex flex-row bg-gradient-to-r rounded-t-lg from-red-200 to-red-200">
           <p className="pt-5 pl-5 font-bold ">攻撃側</p>
-          <CallPostModal textColor={`text-rose-500`} />
+          <CallPostModal
+            textColor={`text-rose-500`}
+            setInformation={getAttackerInformation}
+          />
         </div>
 
         {/* ポケモン選択　*/}
@@ -162,6 +208,7 @@ const Attacker = (props) => {
           {/* 攻撃努力値 */}
           <div className="relative ml-4">
             <input
+              value={attack_ev}
               type="number"
               onChange={handleAttack}
               id="attack_ev_floating_filled"
@@ -233,6 +280,7 @@ const Attacker = (props) => {
           {/* 特攻努力値 */}
           <div className="relative ml-4">
             <input
+              value={special_attack_ev}
               type="number"
               onChange={handleSpecialAttack}
               min="0"

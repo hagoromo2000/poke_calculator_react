@@ -29,7 +29,6 @@ const IndexPosts = () => {
   }, []);
 
   const handleSearch = () => {
-    console.log(searchTerm);
     const keywords = searchTerm.split(/\s+/);
 
     const filteringPosts = posts.filter((post) => {

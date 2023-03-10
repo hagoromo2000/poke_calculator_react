@@ -6,6 +6,7 @@ import Items from "../json/all_items.json";
 import Types from "../json/all_types.json";
 import Abilities from "../json/all_abilities.json";
 import CallPostModal from "./CallPostModal";
+import { logRoles } from "@testing-library/react";
 
 const all_pokemons = Pokemons.map((data) => {
   return { value: data, label: data.name };
@@ -126,12 +127,63 @@ const Defender = (props) => {
     props.setSpecialDefense(special_defense_value);
   }, [specialDefense_ev, specialDefenseNature, pokemon]);
 
+  //　CallPostModalに受け渡すための関数
+  const getDefenderInformation = (post) => {
+    // これはDefender
+    const pokemonName = post.pokemon;
+
+    //現段階では名前しか情報を持っていないので、JSONデータを名前で検索しオブジェクトを取得。
+    const result = Pokemons.filter((obj) => obj.name === pokemonName);
+
+    //　形を{value: {各種データ}}にする
+    const formattedResult = { value: result[0], label: pokemonName };
+
+    // 取得したオブジェクトからポケモンをセット
+    setPokemon(formattedResult);
+
+    // タイプのセット
+    props.setDefenseType1(formattedResult.value.type1);
+    props.setDefenseType2(formattedResult.value.type2);
+
+    // 努力値のセット
+    setHp_ev(post.ev_hp);
+    setDefense_ev(post.ev_defense);
+    setSpecialDefense_ev(post.ev_special_defense);
+
+    //　性格補正のセット
+    const defenseNatureValues = {
+      ずぶとい: 1.1,
+      のうてんき: 1.1,
+      わんぱく: 1.1,
+      のんき: 1.1,
+      さみしがり: 0.9,
+      おっとり: 0.9,
+      おとなしい: 0.9,
+      せっかち: 0.9,
+    };
+    setDefenseNature(defenseNatureValues[post.nature] || 1);
+    const specialDefenseNatureValues = {
+      おだやか: 1.1,
+      おとなしい: 1.1,
+      しんちょう: 1.1,
+      なまいき: 1.1,
+      やんちゃ: 0.9,
+      のうてんき: 0.9,
+      うっかりや: 0.9,
+      むじゃき: 0.9,
+    };
+    setSpecialDefenseNature(specialDefenseNatureValues[post.nature] || 1);
+  };
+
   return (
     <>
       <div className="artboard phone-5 bg-white rounded-lg shadow-xl mx-auto mt-10 ">
         <div className="flex flex-row bg-gradient-to-r rounded-t-lg from-blue-200 to-blue-200">
           <p className="pt-5 pl-5 font-bold ">防御側</p>
-          <CallPostModal textColor={`text-indigo-500`} />
+          <CallPostModal
+            textColor={`text-indigo-500`}
+            setInformation={getDefenderInformation}
+          />
         </div>
 
         <div className="w-64 mt-5 ml-4">
@@ -154,6 +206,7 @@ const Defender = (props) => {
           {/* HP努力値 */}
           <div className="relative ml-4">
             <input
+              value={hp_ev}
               type="number"
               onChange={handleHp}
               min="0"
@@ -197,6 +250,7 @@ const Defender = (props) => {
           {/* 防御努力値 */}
           <div className="relative ml-4">
             <input
+              value={defense_ev}
               type="number"
               id="defense_ev_floating_filled"
               onChange={handleDefense}
@@ -268,6 +322,7 @@ const Defender = (props) => {
           {/* 特防努力値 */}
           <div className="relative ml-4">
             <input
+              value={specialDefense_ev}
               type="number"
               onChange={handleSpecialDefense}
               min="0"
