@@ -183,6 +183,7 @@ const Defender = (props) => {
           <CallPostModal
             textColor={`text-indigo-500`}
             setInformation={getDefenderInformation}
+            callPostModalId={`defender-call-post-modal`}
           />
         </div>
 
