@@ -43,11 +43,6 @@ const Defender = (props) => {
     setItem(item);
   };
 
-  // const handleTeraType = (teraType) => {
-  //   props.setTeraType(teraType);
-  //   console.log(teraType);
-  // };
-
   function handleTeraType(selectedOption) {
     const value = selectedOption ? selectedOption.value : null;
     props.setTeraType(value);

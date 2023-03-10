@@ -115,6 +115,7 @@ const CallPostModal = (props) => {
                           post={post.attributes}
                           setInformation={props.setInformation}
                           key={post.id}
+                          callPostModalId={props.callPostModalId}
                         />
                       ))}
                   </tbody>

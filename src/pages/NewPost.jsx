@@ -202,7 +202,6 @@ const NewPost = () => {
 
     try {
       const response = await axios.post("/posts", data, config);
-      console.log(response.data);
       if (response.status === 200) {
         toast.success("育成論が投稿されました!");
         navigate("/");
