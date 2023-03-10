@@ -16,7 +16,6 @@ const CallPostModal = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log(searchTerm);
     const keywords = searchTerm.split(/\s+/);
 
     const filteringPosts = posts.filter((post) => {
@@ -110,8 +109,8 @@ const CallPostModal = (props) => {
                       filteredPosts.map((post) => (
                         <TableBody
                           post={post.attributes}
-                          key={post.id}
                           setInformation={props.setInformation}
+                          key={post.id}
                         />
                       ))}
                   </tbody>

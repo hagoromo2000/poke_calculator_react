@@ -6,6 +6,7 @@ import Items from "../json/all_items.json";
 import Types from "../json/all_types.json";
 import Abilities from "../json/all_abilities.json";
 import CallPostModal from "./CallPostModal";
+import { logRoles } from "@testing-library/react";
 
 const all_pokemons = Pokemons.map((data) => {
   return { value: data, label: data.name };
@@ -128,6 +129,7 @@ const Defender = (props) => {
 
   //　CallPostModalに受け渡すための関数
   const getDefenderInformation = (post) => {
+    // これはDefender
     const pokemonName = post.pokemon;
 
     //現段階では名前しか情報を持っていないので、JSONデータを名前で検索しオブジェクトを取得。

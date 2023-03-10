@@ -129,6 +129,7 @@ const Attacker = (props) => {
 
   // CallPostModalに受け渡すための関数
   const getAttackerInformation = (post) => {
+    // これはAttacker
     const pokemonName = post.pokemon;
 
     //現段階では名前しか情報を持っていないので、JSONデータを名前で検索しオブジェクトを取得。
