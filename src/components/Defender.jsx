@@ -6,7 +6,6 @@ import Items from "../json/all_items.json";
 import Types from "../json/all_types.json";
 import Abilities from "../json/all_abilities.json";
 import CallPostModal from "./CallPostModal";
-import { logRoles } from "@testing-library/react";
 
 const all_pokemons = Pokemons.map((data) => {
   return { value: data, label: data.name };
@@ -182,13 +181,15 @@ const Defender = (props) => {
           />
         </div>
 
-        <div className="w-64 mt-5 ml-4">
+        <div className="w-64 mt-5 ml-4 z-20">
           <Select
             value={pokemon}
             onChange={handlePokemon}
             options={all_pokemons}
             isSearchable={true}
             placeholder="ポケモンを選択"
+            menuPortalTarget={document.body}
+            styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
           />
         </div>
 
@@ -231,6 +232,8 @@ const Defender = (props) => {
                 options={all_types}
                 isSearchable={true}
                 placeholder="テラス"
+                menuPortalTarget={document.body}
+                styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
               />
             </div>
           </div>
@@ -389,6 +392,8 @@ const Defender = (props) => {
               options={all_abilities}
               isSearchable={true}
               placeholder="とくせい"
+              menuPortalTarget={document.body}
+              styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
             />
           </div>
 
@@ -424,6 +429,8 @@ const Defender = (props) => {
               options={all_items}
               isSearchable={true}
               placeholder="持ち物"
+              menuPortalTarget={document.body}
+              styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
             />
           </div>
         </div>
