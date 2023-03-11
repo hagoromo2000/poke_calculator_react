@@ -6,9 +6,9 @@ const Footer = (props) => {
 
   return (
     <>
-      <footer className="footer pb-4 bg-base-100 text-base-content fixed bottom-0 z-20 rounded-t-lg">
+      <footer className="footer pb-4 bg-base-100 text-base-content fixed bottom-0 z-20 rounded-t-xl">
         <div className="w-full">
-          <div className="w-full bg-gradient-to-r from-indigo-200 to-rose-200 rounded-t-lg border-t-2 border-indigo-400">
+          <div className="w-full bg-gradient-to-r from-indigo-200 to-rose-200 rounded-t-xl border-t-2 border-indigo-400">
             <p className="ml-10 text-gray-600 font-semibold">計算結果</p>
           </div>
           <div className="w-full">
