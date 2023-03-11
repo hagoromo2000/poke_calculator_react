@@ -195,6 +195,8 @@ const Attacker = (props) => {
               options={all_pokemons}
               isSearchable={true}
               placeholder="ポケモンを選択"
+              menuPortalTarget={document.body}
+              styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
             />
           </div>
         </div>
@@ -352,6 +354,8 @@ const Attacker = (props) => {
               options={all_abilities}
               isSearchable={true}
               placeholder="とくせい"
+              menuPortalTarget={document.body}
+              styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
             />
           </div>
 
@@ -387,6 +391,8 @@ const Attacker = (props) => {
               options={all_items}
               isSearchable={true}
               placeholder="持ち物"
+              menuPortalTarget={document.body}
+              styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
             />
           </div>
 
@@ -412,6 +418,8 @@ const Attacker = (props) => {
               options={all_moves}
               isSearchable={true}
               placeholder="わざを選択"
+              menuPortalTarget={document.body}
+              styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
             />
           </div>
 
