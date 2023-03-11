@@ -11,7 +11,7 @@ import WeatherDefenseModifier from "../calculator/WeatherDefenseModifier";
 import WeatherSpecialDefenseModifier from "../calculator/WeatherSpecialDefenseModifier";
 import FieldDamageModifier from "../calculator/FieldDamageModifier";
 import roundToHalf from "../calculator/RoundToHalf";
-import NotifyBetaToast from "../components/NotifyBetaToast";
+import BetaToast from "../components/BetaToast";
 
 const Calculator = () => {
   const [attack, setAttack] = useState(100);
@@ -194,6 +194,9 @@ const Calculator = () => {
 
   return (
     <>
+      <div className="flex justify-center mt-2">
+        <BetaToast />
+      </div>
       <div className="md:flex">
         <Attacker
           setAttack={setAttack}

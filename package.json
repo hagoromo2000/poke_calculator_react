@@ -16,6 +16,8 @@
     "body-scroll-lock": "^4.0.0-beta.0",
     "daisyui": "^2.50.1",
     "firebase": "^9.17.1",
+    "flowbite": "^1.6.4",
+    "flowbite-react": "^0.4.2",
     "json-cyclic": "^1.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
