@@ -33,6 +33,7 @@ const Calculator = () => {
   const [teraType, setTeraType] = useState(null);
   const [defenseType1, setDefenseType1] = useState("ほのお");
   const [defenseType2, setDefenseType2] = useState("ひこう");
+  const [wall, setWall] = useToggle(false);
 
   const [weather, setWeather] = useState(null);
   const [damageMultiplierByWeather, setDamageMultiplierByWeather] = useState(1);
@@ -190,6 +191,7 @@ const Calculator = () => {
   // 基礎ダメージが計算されると、乱数幅を掛けた最大ダメージと最小ダメージが算出され、それに各種倍率を掛けて最終的なダメージが算出される。
   useEffect(() => {
     let stab = 1;
+
     //　タイプ一致の場合、タイプ一致補正でダメージが1.5倍になる（same_type_attack_bonus = stab)
     if (attackerFirstType === moveType || attackerSecondType === moveType) {
       stab = stab + 0.5;
@@ -198,6 +200,11 @@ const Calculator = () => {
     // テラスタル中の場合、タイプ一致と同じ扱い。これはタイプ一致補正と重複する(2.25倍にはならず、2倍になる)
     if (attackerTerastal === true) {
       stab = stab + 0.5;
+    }
+
+    // リフレクター・光のかべ状態時、ダメージは半分
+    if (wall === true) {
+      stab = stab * 0.5;
     }
 
     // ダメージの乱数幅を制御
@@ -215,7 +222,7 @@ const Calculator = () => {
     // タイプ相性をかける
     setMinDamage(Math.floor(minBaseDamage * compatibility));
     setMaxDamage(Math.floor(maxBaseDamage * compatibility));
-  }, [damage, attackerTerastal, moveType, compatibility]);
+  }, [damage, attackerTerastal, moveType, compatibility, wall]);
 
   return (
     <>
@@ -248,6 +255,7 @@ const Calculator = () => {
           setTeraType={setTeraType}
           setDefenseType1={setDefenseType1}
           setDefenseType2={setDefenseType2}
+          setWall={setWall}
           hp={hp}
           defense={defense}
           specialDefense={specialDefense}

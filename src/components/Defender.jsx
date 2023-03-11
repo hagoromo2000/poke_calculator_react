@@ -434,6 +434,22 @@ const Defender = (props) => {
             />
           </div>
         </div>
+
+        <div className="flex mt-5 ml-4">
+          {/* やけど */}
+          <div className="form-control">
+            <label className="label cursor-pointer">
+              <span className="label-text text-gray-500">
+                リフレクター・ひかりのかべ
+              </span>
+              <input
+                type="checkbox"
+                className="toggle toggle-info"
+                onClick={props.setWall}
+              />
+            </label>
+          </div>
+        </div>
       </div>
     </>
   );
