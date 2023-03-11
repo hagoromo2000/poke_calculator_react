@@ -52,28 +52,28 @@ const PostShowModal = (props) => {
           </h3>
           <div className="grid grid-cols-4 gap-1">
             <p className="col-span-2">
-              <span class="font-bold">ポケモン:</span> {props.post.pokemon}
+              <span className="font-bold">ポケモン:</span> {props.post.pokemon}
             </p>
             <p className="col-span-2">
-              <span class="font-bold">性格:</span> {props.post.nature}
+              <span className="font-bold">性格:</span> {props.post.nature}
             </p>
             <div className=" col-span-2">
               {" "}
-              <span class="font-bold">努力値: </span>
+              <span className="font-bold">努力値: </span>
               {props.post.ev_hp}-{props.post.ev_attack}-{props.post.ev_defense}-
               {props.post.ev_special_attack}-{props.post.ev_special_defense}-
               {props.post.ev_speed}
             </div>
             <div className=" col-span-2">
-              <span class="font-bold">テラスタイプ: </span>
+              <span className="font-bold">テラスタイプ: </span>
               {props.post.tera_type}
             </div>
             <p className="col-span-2">
-              <span class="font-bold">もちもの: </span>
+              <span className="font-bold">もちもの: </span>
               {props.post.item}
             </p>
             <p className="col-span-2">
-              <span class="font-bold">とくせい: </span>
+              <span className="font-bold">とくせい: </span>
               {props.post.ability}
             </p>
             <p className="col-span-4 pt-4 font-bold">わざ:</p>
