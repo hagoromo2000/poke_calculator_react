@@ -141,6 +141,11 @@ const NewPost = () => {
       return;
     }
 
+    if (title.length > 16) {
+      toast.error("タイトルは16文字以内で入力してください。");
+      return;
+    }
+
     if (!title || !pokemon || !ability || !nature || !move1 || !teraType) {
       // 必須項目に漏れがないかチェック
       toast.error("入力項目が不足しています。");
