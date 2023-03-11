@@ -6,12 +6,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import NotifyBetaToast from "./NotifyBetaToast";
 
 const Header = () => {
   const [user] = useAuthState(auth);
 
   return (
     <>
+      <NotifyBetaToast />
       <div className="navbar bg-primary sticky">
         <div className="flex-1">
           <div className="btn btn-ghost normal-case text-xl text-white">

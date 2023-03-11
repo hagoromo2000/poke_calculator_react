@@ -57,7 +57,11 @@ const CallPostModal = (props) => {
               ✕
             </label>
 
-            <div className="mt-4 relative shadow-md rounded-lg sm:rounded-lg">
+            <div className="pt-2 text-sm text-gray-600 ">
+              ポケモンを選択すると、努力値と性格補正が自動入力されます。
+            </div>
+
+            <div className="mt-2 relative shadow-md rounded-lg sm:rounded-lg">
               <div className="bg-white dark:bg-gray-900">
                 <label htmlFor="table-search" className="sr-only">
                   Search
