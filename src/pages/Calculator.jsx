@@ -22,6 +22,8 @@ const Calculator = () => {
   const [attackerFirstType, setAttackerFirstType] = useState("でんき");
   const [attackerSecondType, setAttackerSecondType] = useState(null);
   const [attackerTerastal, setAttackerTerastal] = useToggle(false);
+  const [burn, setBurn] = useToggle(false);
+  const [boosterEnergy, setBoosterEnergy] = useToggle(false);
   const [attackerRank, setAttackerRank] = useState(0);
 
   const [hp, setHp] = useState(100);
@@ -99,6 +101,8 @@ const Calculator = () => {
       let baseDamage = 0;
       let attackRankMultiplier = 1;
       let defenseRankMultiplier = 1;
+      let burnMultiplier = 1;
+      let boosterEnergyMultiplier = 1;
 
       // 能力ランクによるステータス倍率の設定
       if (attackerRank >= 0) {
@@ -113,6 +117,16 @@ const Calculator = () => {
         defenseRankMultiplier = 2 / (2 - defenseRank);
       }
 
+      //　やけどによるステータス倍率の設定
+      if (burn === true) {
+        burnMultiplier = 1 / 2;
+      }
+
+      //　ブーストエナジーによるステータス倍率の設定
+      if (boosterEnergy === true) {
+        boosterEnergyMultiplier = 1.3;
+      }
+
       // ダメージ=攻撃側のレベル×2÷5+2→切り捨て 今回はレベル50固定なので22で確定
       // ×物理技(特殊技)の威力×(攻撃側のこうげき(とくこう)*ランク補正)÷(防御側のぼうぎょ(とくぼう)*ランク補正)→切り捨て
       // ÷50+2→切り捨て
@@ -120,7 +134,12 @@ const Calculator = () => {
       if (damageClass === "ぶつり") {
         baseDamage = Math.floor(
           Math.floor(
-            (22 * power * (attack * attackRankMultiplier)) /
+            (22 *
+              power *
+              (attack *
+                attackRankMultiplier *
+                burnMultiplier *
+                boosterEnergyMultiplier)) /
               (defense * defenseMultiplierByWeather * defenseRankMultiplier)
           ) /
             50 +
@@ -129,7 +148,11 @@ const Calculator = () => {
       } else {
         baseDamage = Math.floor(
           Math.floor(
-            (22 * power * (specialAttack * attackRankMultiplier)) /
+            (22 *
+              power *
+              (specialAttack *
+                attackRankMultiplier *
+                boosterEnergyMultiplier)) /
               (specialDefense *
                 specialDefenseMultiplierByWeather *
                 defenseRankMultiplier)
@@ -160,6 +183,8 @@ const Calculator = () => {
     defenseMultiplierByWeather,
     specialDefenseMultiplierByWeather,
     damageMultiplierByField,
+    burn,
+    boosterEnergy,
   ]);
 
   // 基礎ダメージが計算されると、乱数幅を掛けた最大ダメージと最小ダメージが算出され、それに各種倍率を掛けて最終的なダメージが算出される。
@@ -207,6 +232,8 @@ const Calculator = () => {
           setAttackerFirstType={setAttackerFirstType}
           setAttackerSecondType={setAttackerSecondType}
           setAttackerTerastal={setAttackerTerastal}
+          setBurn={setBurn}
+          setBoosterEnergy={setBoosterEnergy}
           setAttackerRank={setAttackerRank}
           power={power}
           attack={attack}

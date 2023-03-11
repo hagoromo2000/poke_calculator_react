@@ -442,6 +442,31 @@ const Attacker = (props) => {
             </label>
           </div>
         </div>
+
+        <div className="flex mt-5 ml-4">
+          {/* やけど */}
+          <div className="form-control">
+            <label className="label cursor-pointer">
+              <span className="label-text text-gray-500">やけど</span>
+              <input
+                type="checkbox"
+                className="toggle toggle-error"
+                onClick={props.setBurn}
+              />
+            </label>
+          </div>
+          {/* ブーストエナジー */}
+          <div className="form-control">
+            <label className="label cursor-pointer">
+              <span className="label-text text-gray-500">ブーストエナジー</span>
+              <input
+                type="checkbox"
+                className="toggle toggle-error"
+                onClick={props.setBoosterEnergy}
+              />
+            </label>
+          </div>
+        </div>
       </div>
     </>
   );
