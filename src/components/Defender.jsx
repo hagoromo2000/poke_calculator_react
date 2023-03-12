@@ -169,6 +169,10 @@ const Defender = (props) => {
     setSpecialDefenseNature(specialDefenseNatureValues[post.nature] || 1);
   };
 
+  const handleOtherMultiplier = (e) => {
+    props.setOtherMultiplier(e.target.value);
+  };
+
   return (
     <>
       <div className="artboard phone-5 bg-white rounded-lg shadow-xl mx-auto mt-8 ">
@@ -448,6 +452,43 @@ const Defender = (props) => {
                 onClick={props.setWall}
               />
             </label>
+          </div>
+        </div>
+        <div className="w-11/12 mt-2 mx-auto">
+          <div className="text-xs text-gray-600">その他倍率</div>
+          <input
+            type="range"
+            min="0.5"
+            max="2"
+            value={props.otherMultiplier}
+            onChange={handleOtherMultiplier}
+            step="0.1"
+            className="range range-xs range-info"
+            id="attackerOtherMunipulater"
+          />
+          <div className="w-full flex justify-between text-xs px-2 text-gray-400">
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>|</span>
+            <span>| </span>
+          </div>
+          <div className="w-full flex justify-between text-xs px-2 text-gray-600">
+            <span>0.5</span>
+            <span>1.0</span>
+            <span>1.5</span>
+            <span>2.0</span>
           </div>
         </div>
       </div>

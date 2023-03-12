@@ -24,6 +24,7 @@ const Calculator = () => {
   const [attackerTerastal, setAttackerTerastal] = useToggle(false);
   const [burn, setBurn] = useToggle(false);
   const [boosterEnergy, setBoosterEnergy] = useToggle(false);
+  const [attackerOtherMultiplier, setAttackerOtherMultiplier] = useState(1);
   const [attackerRank, setAttackerRank] = useState(0);
 
   const [hp, setHp] = useState(100);
@@ -34,6 +35,7 @@ const Calculator = () => {
   const [defenseType1, setDefenseType1] = useState("ほのお");
   const [defenseType2, setDefenseType2] = useState("ひこう");
   const [wall, setWall] = useToggle(false);
+  const [defenderOtherMultiplier, setDefenderOtherMultiplier] = useState(1);
 
   const [weather, setWeather] = useState(null);
   const [damageMultiplierByWeather, setDamageMultiplierByWeather] = useState(1);
@@ -140,8 +142,12 @@ const Calculator = () => {
               (attack *
                 attackRankMultiplier *
                 burnMultiplier *
-                boosterEnergyMultiplier)) /
-              (defense * defenseMultiplierByWeather * defenseRankMultiplier)
+                boosterEnergyMultiplier *
+                attackerOtherMultiplier)) /
+              (defense *
+                defenseMultiplierByWeather *
+                defenseRankMultiplier *
+                defenderOtherMultiplier)
           ) /
             50 +
             2
@@ -153,10 +159,12 @@ const Calculator = () => {
               power *
               (specialAttack *
                 attackRankMultiplier *
-                boosterEnergyMultiplier)) /
+                boosterEnergyMultiplier *
+                attackerOtherMultiplier)) /
               (specialDefense *
                 specialDefenseMultiplierByWeather *
-                defenseRankMultiplier)
+                defenseRankMultiplier *
+                defenderOtherMultiplier)
           ) /
             50 +
             2
@@ -186,6 +194,8 @@ const Calculator = () => {
     damageMultiplierByField,
     burn,
     boosterEnergy,
+    attackerOtherMultiplier,
+    defenderOtherMultiplier,
   ]);
 
   // 基礎ダメージが計算されると、乱数幅を掛けた最大ダメージと最小ダメージが算出され、それに各種倍率を掛けて最終的なダメージが算出される。
@@ -242,10 +252,12 @@ const Calculator = () => {
           setBurn={setBurn}
           setBoosterEnergy={setBoosterEnergy}
           setAttackerRank={setAttackerRank}
+          setOtherMultiplier={setAttackerOtherMultiplier}
           power={power}
           attack={attack}
           specialAttack={specialAttack}
           attackerRank={attackerRank}
+          otherMultiplier={attackerOtherMultiplier}
         />
         <Defender
           setHp={setHp}
@@ -256,11 +268,13 @@ const Calculator = () => {
           setDefenseType1={setDefenseType1}
           setDefenseType2={setDefenseType2}
           setWall={setWall}
+          setOtherMultiplier={setDefenderOtherMultiplier}
           hp={hp}
           defense={defense}
           specialDefense={specialDefense}
           defenseRank={defenseRank}
           teraType={teraType}
+          otherMultiplier={defenderOtherMultiplier}
         />
       </div>
       <div className="h-64">
