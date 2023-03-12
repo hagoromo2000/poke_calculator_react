@@ -3,7 +3,7 @@ import Select from "react-select";
 import "../css/Calculator.css";
 import Pokemons from "../json/all_pokemons.json";
 import Items from "../json/all_items.json";
-import Types from "../json/all_types.json";
+import Types from "../json/all_teraTypes.json";
 import Abilities from "../json/all_abilities.json";
 import CallPostModal from "./CallPostModal";
 
