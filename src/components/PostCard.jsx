@@ -1,6 +1,14 @@
 import React from "react";
 
 const PostCard = (props) => {
+  const handleDelete = (id) => {
+    // 確認用のアラートを表示する
+    if (window.confirm("本当に削除しますか？")) {
+      // 削除処理を実行する
+      props.handleDelete(id);
+    }
+  };
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl md:m-4 mb-4 text-gray-600">
       <div className="card-body">
@@ -13,7 +21,15 @@ const PostCard = (props) => {
             {props.post.ev_speed}
           </p>
 
-          <div className="card-actions justify-end">
+          {props.delete && (
+            <div className="card-actions justify-end">
+              <button className="btn" onClick={() => handleDelete(props.id)}>
+                削除
+              </button>
+            </div>
+          )}
+
+          <div className="card-actions justify-end ">
             <PostShowModal post={props.post} id={props.id} />
           </div>
         </div>

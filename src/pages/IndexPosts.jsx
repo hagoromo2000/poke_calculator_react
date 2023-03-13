@@ -73,7 +73,7 @@ const IndexPosts = () => {
         {filteredPosts.length > 0 &&
           currentPosts.map((post) => (
             <div key={post.id}>
-              <PostCard post={post.attributes} id={post.id} />
+              <PostCard post={post.attributes} id={post.id} delete={false} />
             </div>
           ))}
       </div>

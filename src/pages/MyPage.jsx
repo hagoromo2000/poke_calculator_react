@@ -5,7 +5,7 @@ import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { useAuthContext } from "../context/AuthContext.tsx";
 import { auth } from "../firebase";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { toast } from "react-toastify";
 import "react-tabs/style/react-tabs.css";
 
 const MyPage = () => {
@@ -41,17 +41,29 @@ const MyPage = () => {
     }
     fetchData();
   }, []);
+
+  const handleDelete = async (id) => {
+    const config = await setConfig();
+    axios.delete(`/posts/${id}`, config);
+
+    // 削除された投稿を排除した新しい`posts`の状態を設定する
+    const updatedPosts = posts.filter((post) => post.id !== id);
+    setPosts(updatedPosts);
+
+    toast.success("育成論が削除されました!");
+  };
+
   return (
     <>
       <div className="text-4xl text-gray-600 flex justify-center mt-10">
         <div className="avatar">
           <div className="w-10 rounded-full mr-8">
-            <img src={auth.currentUser.photoURL} alt="" />
+            <img src={auth.currentUser.photoURL} referrerPolicy="no-referrer" />
           </div>
         </div>
         <p>{auth.currentUser.displayName}のマイページ</p>
       </div>
-      <hr class="h-px my-8 bg-gray-200 border-0 "></hr>
+      <hr className="h-px my-8 bg-gray-200 border-0 "></hr>
 
       <div className="text-2xl text-gray-600 flex justify-center mb-4">
         自分の投稿一覧
@@ -60,7 +72,12 @@ const MyPage = () => {
         {posts.length > 0 &&
           currentPosts.map((post) => (
             <div key={post.id}>
-              <PostCard post={post.attributes} id={post.id} />
+              <PostCard
+                post={post.attributes}
+                id={post.id}
+                delete={true}
+                handleDelete={handleDelete}
+              />
             </div>
           ))}
       </div>

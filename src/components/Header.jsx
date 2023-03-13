@@ -110,7 +110,7 @@ function UserInfo() {
       <a>
         <div className="avatar">
           <div className="w-10 rounded-full">
-            <img src={auth.currentUser.photoURL} alt="" />
+            <img src={auth.currentUser.photoURL} referrerPolicy="no-referrer" />
           </div>
         </div>
         <svg
