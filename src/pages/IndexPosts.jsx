@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import PostCard from "../components/PostCard";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
+import { InfinitySpin } from "react-loader-spinner";
 
 const IndexPosts = () => {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // react-paginateのための設定
   const [itemsOffset, setItemsOffset] = useState(0);
@@ -24,6 +26,9 @@ const IndexPosts = () => {
     axios.get("/posts").then((res) => {
       setPosts(res.data.data);
       setFilteredPosts(res.data.data);
+
+      setIsLoading(false);
+      // データの取得が完了したらisLoadingをfalseに設定する
     });
   }, []);
 
@@ -69,42 +74,56 @@ const IndexPosts = () => {
         </div>
       </div>
 
-      <div className="md:flex flex-wrap justify-center">
-        {filteredPosts.length > 0 &&
-          currentPosts.map((post) => (
-            <div key={post.id}>
-              <PostCard post={post.attributes} id={post.id} delete={false} />
-            </div>
-          ))}
-      </div>
-      <div className="pb-8">
-        <ReactPaginate
-          pageCount={pageCount}
-          layout="pagination"
-          onPageChange={handlePageClick}
-          previousLabel={"Previous"}
-          nextLabel={"Next"}
-          breakLabel={"..."}
-          marginPagesDisplayed={3}
-          pageRangeDisplayed={3}
-          containerClassName={
-            "text-gray-600 justify-center items-center flex gap-x-5 gap-y-1.5"
-          }
-          pageClassName={
-            "inline-flex justify-center items-center h-10 w-10 text-base font-bold rounded-full hover:border-black hover:font-bold "
-          }
-          pageLinkClassName={
-            "inline-flex justify-center rounded-full align-middle text-black"
-          }
-          breakClassName={
-            "inline-flex justify-center items-center h-10 w-10 text-base font-bold bg-white rounded-full"
-          }
-          breakLinkClassName={
-            "inline-flex justify-center rounded-full align-middle text-black"
-          }
-          activeClassName={"bg-green-300"}
-        />
-      </div>
+      {isLoading ? ( // isLoadingがtrueの間はスピナーを表示する
+        <div className="flex justify-center">
+          <div className="loader">
+            <InfinitySpin width="200" color="#4fa94d" />
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="md:flex flex-wrap justify-center">
+            {filteredPosts.length > 0 &&
+              currentPosts.map((post) => (
+                <div key={post.id}>
+                  <PostCard
+                    post={post.attributes}
+                    id={post.id}
+                    delete={false}
+                  />
+                </div>
+              ))}
+          </div>
+          <div className="pb-8">
+            <ReactPaginate
+              pageCount={pageCount}
+              layout="pagination"
+              onPageChange={handlePageClick}
+              previousLabel={"Previous"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              marginPagesDisplayed={3}
+              pageRangeDisplayed={3}
+              containerClassName={
+                "text-gray-600 justify-center items-center flex gap-x-5 gap-y-1.5"
+              }
+              pageClassName={
+                "inline-flex justify-center items-center h-10 w-10 text-base font-bold rounded-full hover:border-black hover:font-bold "
+              }
+              pageLinkClassName={
+                "inline-flex justify-center rounded-full align-middle text-black"
+              }
+              breakClassName={
+                "inline-flex justify-center items-center h-10 w-10 text-base font-bold bg-white rounded-full"
+              }
+              breakLinkClassName={
+                "inline-flex justify-center rounded-full align-middle text-black"
+              }
+              activeClassName={"bg-green-300"}
+            />
+          </div>
+        </>
+      )}
     </>
   );
 };
