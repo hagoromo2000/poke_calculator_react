@@ -22,8 +22,11 @@ const PostCard = (props) => {
           </p>
 
           {props.delete && (
-            <div className="card-actions justify-end">
-              <button className="btn" onClick={() => handleDelete(props.id)}>
+            <div className="card-actions justify-end mr-1">
+              <button
+                className="btn btn-outline btn-error"
+                onClick={() => handleDelete(props.id)}
+              >
                 削除
               </button>
             </div>
