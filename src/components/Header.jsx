@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import CautionModal from "./CautionModal";
 
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -98,6 +99,8 @@ const Header = () => {
           </p>
         </div>
       </div>
+
+      <CautionModal />
     </>
   );
 };
@@ -126,6 +129,10 @@ function UserInfo() {
       <ul className="py-2 pr-2 shadow-xl bg-emerald-400">
         <li>
           <Link to={"/mypage/"}>マイページ</Link>
+        </li>
+        <li>
+          {/* CauitonModalコンポーネントを呼び出す */}
+          <label htmlFor="caution-modal">注意事項</label>
         </li>
         <li>
           <SignOutButton />
