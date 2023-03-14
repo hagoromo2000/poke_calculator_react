@@ -8,6 +8,7 @@ import { auth } from "../firebase";
 import { toast } from "react-toastify";
 import { InfinitySpin } from "react-loader-spinner";
 import "react-tabs/style/react-tabs.css";
+import MypageHeader from "../components/MypageHeader";
 
 const MyPage = () => {
   const [posts, setPosts] = useState([]);
@@ -44,7 +45,7 @@ const MyPage = () => {
     fetchData();
     setIsLoading(false);
     // データの取得が完了したらisLoadingをfalseに設定する
-  }, []);
+  }, [auth.currentUser]); // Pageのリロード時も正しく自分の投稿一覧が表示されるように、auth.currentUserに値が入ったタイミングでリクエストを送る
 
   const handleDelete = async (id) => {
     const config = await setConfig();
@@ -59,14 +60,7 @@ const MyPage = () => {
 
   return (
     <>
-      <div className="text-4xl text-gray-600 flex justify-center mt-10">
-        <div className="avatar">
-          <div className="w-10 rounded-full mr-8">
-            <img src={auth.currentUser.photoURL} referrerPolicy="no-referrer" />
-          </div>
-        </div>
-        <p>{auth.currentUser.displayName}のマイページ</p>
-      </div>
+      <MypageHeader />
       <hr className="h-px my-8 bg-gray-200 border-0 "></hr>
 
       <div className="text-2xl text-gray-600 flex justify-center mb-4">
