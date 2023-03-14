@@ -4,7 +4,7 @@ import Attacker from "../components/Attacker";
 import "../css/Calculator.css";
 import Defender from "../components/Defender";
 import Environment from "../components/Environment";
-import Footer from "../components/Footer";
+import Result from "../components/Result";
 import TypeCompatibility from "../calculator/TypeCompatibility";
 import WeatherDamageModifier from "../calculator/WeatherDamageModifier";
 import WeatherDefenseModifier from "../calculator/WeatherDefenseModifier";
@@ -280,7 +280,7 @@ const Calculator = () => {
       <div className="h-64">
         <Environment setWeather={setWeather} setField={setField} />
       </div>
-      <Footer
+      <Result
         damage={damage}
         minDamage={minDamage}
         maxDamage={maxDamage}

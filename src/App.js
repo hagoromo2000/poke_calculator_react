@@ -11,6 +11,7 @@ import NewPost from "./pages/NewPost";
 import MyPage from "./pages/MyPage";
 import Terms from "./pages/Terms";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Footer from "./components/Footer";
 
 axios.defaults.baseURL =
   process.env.REACT_APP_BASE_URL || "http://localhost:3001/api/v1";
@@ -46,6 +47,7 @@ function App() {
               />
               <Route exact path={`/mypage/`} element={<MyPage />} />
             </Routes>
+            <Footer />
           </AuthContextProvider>
         </BrowserRouter>
       </div>
