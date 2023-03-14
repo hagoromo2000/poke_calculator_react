@@ -1,100 +1,44 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Footer = (props) => {
-  // const maxDamage = Math.floor(props.damage);
-  // const minDamage = Math.floor(Math.floor(props.damage) * 0.85);
-
+const Footer = () => {
   return (
     <>
-      <footer className="footer pb-4 bg-base-100 text-base-content fixed bottom-0 z-20 rounded-t-xl">
-        <div className="w-full">
-          <div className="w-full bg-gradient-to-r from-indigo-200 to-rose-200 rounded-t-xl border-t-2 border-indigo-400">
-            <p className="ml-10 text-gray-600 font-semibold">計算結果</p>
+      <footer className="p-4 bg-green-100 rounded-lg shadow md:px-6 md:py-8 ">
+        <div className="sm:flex sm:items-center sm:justify-between">
+          <div className="flex items-center mb-4 sm:mb-0">
+            <img src="logo.png" className="h-12 mr-3" alt="Logo" />
+            <Link to={`/`}>
+              <span className="self-center text-2xl font-semibold whitespace-nowrap ">
+                PokeCalculator
+              </span>
+            </Link>
           </div>
-          <div className="w-full">
-            <div className="flex justify-end mr-16">
-              <div className="mr-2">
-                <p>残りHP</p>
-              </div>
-              <p>
-                {props.hp - props.maxDamage < 0
-                  ? 0
-                  : props.hp - props.maxDamage}{" "}
-                ~{" "}
-                {props.hp - props.minDamage < 0
-                  ? 0
-                  : props.hp - props.minDamage}{" "}
-                / {props.hp}
-              </p>
-            </div>
-          </div>
-          <div className="w-full flex justify-center">
-            <div className="w-11/12 bg-gray-200 rounded-full relative">
-              <div
-                className="bg-gray-300 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full h-2.5 absolute top-0 bottom-0 left-0 right-0"
-                style={{
-                  width: `100%`,
-                }}
-              ></div>
-              <div
-                className={`${
-                  props.maxDamage / props.hp > 0.8
-                    ? "bg-red-400"
-                    : props.maxDamage / props.hp > 0.5
-                    ? "bg-yellow-400"
-                    : "bg-blue-400"
-                } text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full h-2.5 absolute top-0 bottom-0 left-0 right-0`}
-                style={{
-                  width: `${
-                    props.minDamage / props.hp > 1
-                      ? 0
-                      : 100 - (props.minDamage / props.hp) * 100
-                  }%`,
-                  transition: "width 0.3s ease-in-out",
-                }}
+          <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 ">
+            <li>
+              <Link to={`/terms/`} className="mr-4 hover:underline md:mr-6 ">
+                利用規約
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={`/privacy-policy/`}
+                className="mr-4 hover:underline md:mr-6"
               >
-                {/* {(100 - (props.minDamage / props.hp) * 100).toFixed(1)}% */}
-              </div>
-              <div
-                className={`${
-                  props.maxDamage / props.hp > 0.8
-                    ? "bg-red-600"
-                    : props.maxDamage / props.hp > 0.5
-                    ? "bg-amber-500"
-                    : "bg-blue-600"
-                } text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full h-2.5 absolute top-0 bottom-0 left-0 right-0`}
-                style={{
-                  width: `${
-                    props.maxDamage / props.hp > 1
-                      ? 0
-                      : 100 - (props.maxDamage / props.hp) * 100
-                  }%`,
-                  transition: "width 0.3s ease-in-out",
-                }}
-              >
-                {/* {(100 - (props.minDamage / props.hp) * 100).toFixed(1)}% */}
-              </div>
-            </div>
-          </div>
-          <div className="w-full">
-            <div className="flex justify-end mr-10">
-              <div className="mr-2">
-                {props.compatibility >= 2 ? (
-                  <p>こうかばつぐん </p>
-                ) : props.compatibility === 0 ? (
-                  <p>こうかなし</p>
-                ) : props.compatibility < 1 ? (
-                  <p>こうかいまひとつ </p>
-                ) : null}
-              </div>
-              <p>
-                {props.minDamage} ~ {props.maxDamage} (
-                {((props.minDamage / props.hp) * 100).toFixed(1)}% ~{" "}
-                {((props.maxDamage / props.hp) * 100).toFixed(1)}%)
-              </p>
-            </div>
-          </div>
+                プライバシーポリシー
+              </Link>
+            </li>
+            <li>
+              <label htmlFor="caution-modal" className="hover:underline  ">
+                注意事項
+              </label>
+            </li>
+          </ul>
         </div>
+        <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+        <span className="block text-sm text-gray-500 sm:text-center ">
+          © 2023 All Rights Reserved.
+        </span>
       </footer>
     </>
   );
