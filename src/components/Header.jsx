@@ -15,12 +15,15 @@ const Header = () => {
     <>
       <div className="navbar bg-primary sticky">
         <div className="flex-1">
-          <div className="btn btn-ghost normal-case text-xl text-white">
-            <Link to={`/`}>ダメージ計算</Link>
-          </div>
+          <Link
+            to={`/`}
+            className="btn btn-ghost normal-case text-xl text-white"
+          >
+            ダメージ計算
+          </Link>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1 text-white ">
+          <ul className="menu menu-horizontal px-1 text-white font-semibold ">
             <li tabIndex={0}>
               <a>
                 育成論
