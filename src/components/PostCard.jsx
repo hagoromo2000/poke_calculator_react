@@ -58,7 +58,7 @@ const PostShowModal = (props) => {
         className="modal-toggle"
       />
 
-      <div className="modal modal-bottom sm:modal-middle">
+      <div className="modal modal-bottom sm:modal-middle overflow-auto">
         <div className="modal-box">
           <label
             htmlFor={`post-modal-${props.id}`}
